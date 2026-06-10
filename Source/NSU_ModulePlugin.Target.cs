@@ -11,5 +11,6 @@ public class NSU_ModulePluginTarget : TargetRules
 		DefaultBuildSettings = BuildSettingsVersion.V5;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_5;
 		ExtraModuleNames.Add("NSU_ModulePlugin");
+		ExtraModuleNames.Add("Test");
 	}
 }

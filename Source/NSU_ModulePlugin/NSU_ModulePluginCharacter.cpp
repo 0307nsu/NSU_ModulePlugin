@@ -10,6 +10,7 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "TestActor.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -90,6 +91,13 @@ void ANSU_ModulePluginCharacter::SetupPlayerInputComponent(UInputComponent* Play
 	{
 		UE_LOG(LogTemplateCharacter, Error, TEXT("'%s' Failed to find an Enhanced Input component! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
 	}
+}
+
+void ANSU_ModulePluginCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	
+	GetWorld()->SpawnActor<ATestActor>(FVector::ZeroVector, FRotator::ZeroRotator);
 }
 
 void ANSU_ModulePluginCharacter::Move(const FInputActionValue& Value)
